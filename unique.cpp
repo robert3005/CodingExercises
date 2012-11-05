@@ -18,7 +18,8 @@ bool unique(char *string) {
 
 int main(int argc, char *argv[]) {
 	if( argc != 2 ) {
-		std::cout << "Proper usage unique STRING" << std::endl;
+		std::cout << "proper usage: unique STRING" << std::endl;
+		return 1;
 	}
 	bool result = unique(argv[1]);
 

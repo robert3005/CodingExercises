@@ -5,7 +5,7 @@
 char *reverse(char *string) {
 
 	int strLen = strlen(string);
-	char *rev = (char *)malloc(sizeof(char)*strlen(string));
+	char *rev = new char[strLen];
 	strncpy(rev, string, strLen);
 	char *revHead = rev;
 	char *revBack = rev;
@@ -27,7 +27,8 @@ char *reverse(char *string) {
 
 int main(int argc, char *argv[]) {
 	if( argc != 2 ) {
-		std::cout << "Proper usage reverse STRING" << std::endl;
+		std::cout << "proper usage: reverse STRING" << std::endl;
+		return 0;
 	}
 	char *rev = reverse(argv[1]);
 
