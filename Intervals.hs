@@ -4,7 +4,7 @@ import Data.List
 import Data.Function
 
 {-
-	You are given list of intervals where first number is starting time and second is end time
+	You are given list of intervals where first number is starting time and second is the end time
 	Your task is to sort them and merge any overlapping so you will obtain flat list of non-overlapping intervals
 -}
 
