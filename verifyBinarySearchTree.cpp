@@ -14,10 +14,10 @@ typedef struct treeNode * treeNode_t;
 
 bool verifyBinarySearchTree(treeNode_t tree) {
 	auto updateMax = [] (std::pair<int,int> range, int newMax) -> std::pair<int,int> {
-		return std::pair<int,int>(range.first, std::min(newMax, range.second));
+		return std::make_pair(range.first, std::min(newMax, range.second));
 	};
 	auto updateMin = [] (std::pair<int,int> range, int newMin) -> std::pair<int,int> {
-		return std::pair<int,int>(std::max(newMin, range.first), range.second);
+		return std::make_pair(std::max(newMin, range.first), range.second);
 	};
 	std::function<bool(treeNode_t, std::pair<int,int>)> treeInRange;
 	treeInRange = [updateMax,updateMin,&treeInRange] (treeNode_t tree, std::pair<int,int> range) -> bool {
@@ -35,8 +35,8 @@ bool verifyBinarySearchTree(treeNode_t tree) {
 
 		return valueWithinRange && leftWithinRange && rightWithinRange;
 	};
-	return treeInRange(tree->leftChild, std::pair<int,int>(std::numeric_limits<int>::min(), tree->value))
-		&& treeInRange(tree->rightChild, std::pair<int,int>(tree->value, std::numeric_limits<int>::max()));
+	return treeInRange(tree->leftChild, std::make_pair(std::numeric_limits<int>::min(), tree->value))
+		&& treeInRange(tree->rightChild, std::make_pair(tree->value, std::numeric_limits<int>::max()));
 }
 
 int main(int argc, char* argv[]) {

@@ -1,3 +1,3 @@
-[submodule "xunit"]
-	path = xunit
-	url = ./xunit
+[submodule "Catch"]
+	path = Catch
+	url = git@github.com:philsquared/Catch.git
