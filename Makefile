@@ -1,5 +1,5 @@
 CC=clang++
-CFLAGS=-Wall -Wno-deprecated
+CFLAGS=-Wall -Wno-deprecated -std=c++11
 LDFLAGS=
 
 #Tell make to make one .out file for each .cpp file found in the current directory
@@ -9,7 +9,7 @@ all: $(patsubst %.cpp, %.out, $(wildcard *.cpp))
 #First state what is needed for them e.g. additional headers, .cpp files in an include folder...
 #Then the command to create the .out file, probably you want to add further options to the g++ call.
 %.out: %.cpp Makefile
-	$(CC) $(CFLAGS) $< -o $@ -std=c++0x
+	$(CC) $(CFLAGS) $< -o $@
 
 .PHONY: clean
 clean:

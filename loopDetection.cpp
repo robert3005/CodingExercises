@@ -38,5 +38,5 @@ int main(int argc, char * argv[]) {
 	node2->next = node3;
 	node3->next = node;
 	std::cout << detectLoop(node) << std::endl;
-	return detectLoop(node)
+	return detectLoop(node);
 }

@@ -14,3 +14,7 @@ class NinjaTurtles {
 			return 3*(N/K) + N/3 == P ? N : -1;
 		}
 };
+
+int main(int argc, char* argv[]) {
+	return 0;
+}

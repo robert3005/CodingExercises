@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 struct btree {
 	int value;
