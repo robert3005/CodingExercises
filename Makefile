@@ -1,4 +1,4 @@
-CC=clang++
+CC=clang++ -v
 CFLAGS=-Wall -Wno-deprecated -std=c++11
 LDFLAGS=
 
