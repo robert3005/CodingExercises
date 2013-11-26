@@ -4,7 +4,7 @@
 bool unique(char *string) {
 	while( *string ) {
 		char *checkString = string;
-		++checkString;
+		checkString++;
 		while( *checkString ) {
 			if( *string == *checkString ) {
 				return false;
