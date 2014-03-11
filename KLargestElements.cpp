@@ -7,7 +7,7 @@
 auto kLargestElements(std::vector<int> list, int k) -> std::vector<int> {
   std::vector<int> klargest;
   make_heap(klargest.begin(), klargest.end(), std::greater<int>());
-  for( auto elem : list) {
+  for(auto elem : list) {
     if(klargest.size() < k) {
       klargest.push_back(elem);
       std::push_heap(klargest.begin(), klargest.end(), std::greater<int>());
