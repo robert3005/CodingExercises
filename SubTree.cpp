@@ -30,11 +30,12 @@ bool subTree(btree_t t1, btree_t t2) {
 int main(int argc, char * argv[]) {
 	btree_t t1 = new btree();
 	t1->value = 1;
+
 	btree_t t2 = new btree();
-	t2->value = 1;
+	t2->value = 2;
 	btree_t t3 = new btree();
-	t3->value = 2;
+	t3->value = 1;
 	t2->leftChild = t3;
-	std::cout << subTree(t1, t2) << std::endl;
+	std::cout << subTree(t2, t1) << std::endl;
  	return 0;
 }
