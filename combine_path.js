@@ -2,8 +2,8 @@ function combine_path(pwd, path) {
     if(path == "") {
         return pwd;
     }
-    if(path.indexOf('/') == 0) {
-        return combine_path(path, "");
+    if(path[0] == '/') {
+        pwd = ""
     }
     if(path[0] != '.') {
         path = "./" + path;
@@ -21,4 +21,4 @@ function combine_path(pwd, path) {
     return  '/' + resolvedParts.join('/');
 }
 
-console.log(combine_path("/abc/d", "explicitly/relative/with/../corrections"));
+console.log(combine_path("/abc/d", "/explicitly/relative/with/../corrections"));
