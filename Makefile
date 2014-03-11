@@ -12,4 +12,4 @@ all: $(patsubst %.cpp, %, $(wildcard *.cpp))
 
 .PHONY: clean
 clean:
-	rm -f core $(patsubst %.cpp, %, $(wildcard *.cpp))
+	git clean -xf
