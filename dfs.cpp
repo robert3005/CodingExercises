@@ -26,11 +26,10 @@ graph dfs(graph G, int k) {
         visited.insert(node);
         graph found = nullptr;
         for(graph n : node->adj) {
+            // Not visited
             if(*visited.find(n) == *visited.end()) {
                 graph findX = search(n);
-                if(findX != nullptr) {
-                    found = findX;
-                }
+                found = findX != nullptr ? findX : found;
             }
         }
         return found;
