@@ -21,7 +21,7 @@ flattenIntervals currentInts newInt
 		lastInt = head currentInts
 
 overlaps :: (Num a, Ord a) => (a,a) -> (a,a) -> Bool
-overlaps (s1,t1) (s2,t2) = or [s2 - s1 <= 0, s2 - t1 <= 0]
+overlaps (s1,t1) (s2,t2) = t1 >= s2
 
 merge :: (Num a, Ord a) => (a,a) -> (a,a) -> (a,a)
 merge (s1,t1) (s2,t2) = (s1, (max t1 t2))
