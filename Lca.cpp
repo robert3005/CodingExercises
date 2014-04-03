@@ -54,9 +54,8 @@ Node * lca(Node * t, Node * n, Node * m) {
             }
         }
 
-        int leftLevel = -1;
         if(t->left != nullptr) {
-            leftLevel = lcaHelper(t->left, n, m, path, level, curLevel);
+            int leftLevel = lcaHelper(t->left, n, m, path, level, curLevel);
             if(leftLevel != -1) {
                 if(level == -1) {
                     level = leftLevel;
@@ -71,9 +70,8 @@ Node * lca(Node * t, Node * n, Node * m) {
             level--;
         }
 
-        int rightLevel = -1;
         if(t->right != nullptr) {
-            rightLevel = lcaHelper(t->right, n, m, path, level, curLevel);
+            int rightLevel = lcaHelper(t->right, n, m, path, level, curLevel);
             if(rightLevel != -1) {
                 if(level == -1) {
                     level = rightLevel;
@@ -87,7 +85,6 @@ Node * lca(Node * t, Node * n, Node * m) {
 
         return level;
     };
-
     vector<Node *> path = {};
     int resultLevel = lcaHelper(t, n, m, path, -1, -1);
     if(resultLevel == -1) {
@@ -118,13 +115,12 @@ int main(int argc, char* argv[]) {
     t7->left = t8;
     t7->right = t9;
 
-    Node * t10 = new Node(10);
     printTree(root);
-    Node * ancestor = lca(root, t2, t3);
+    Node * ancestor = lca(root, t5, t9);
     if(ancestor != nullptr) {
         cout << endl << ancestor->id << endl;
     } else {
-        cout << endl << "Nodes " << t2->id << " or " << t10->id << " not found in tree" << endl;
+        cout << endl << "Nodes " << t5->id << " and " << t9->id << " not found in tree" << endl;
     }
     delete root;
     return 0;
