@@ -73,7 +73,7 @@ board * solveBoard(board &b) {
         (*newB)[nextEmpty->y][nextEmpty->x] = value;
         if(isBoardValid(*newB)) {
             board * newSolved = solveBoard(*newB);
-            if(newSolved != nullptr && isBoardValid(*newSolved)) {
+            if(newSolved != nullptr) {
                 return newSolved;
             }
         }

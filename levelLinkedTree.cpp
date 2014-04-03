@@ -3,9 +3,11 @@
 #include <random>
 #include <vector>
 
-std::mt19937 generator(std::random_device{}());
-std::uniform_real_distribution<double> distribution(0, 1);
-std::function<double()> rnd = std::bind(distribution, generator);
+using namespace std;
+
+mt19937 generator(random_device{}());
+uniform_real_distribution<double> distribution(0, 1);
+function<double()> rnd = bind(distribution, generator);
 
 typedef struct node_t {
     node_t * left;
@@ -15,8 +17,8 @@ typedef struct node_t {
 } Node;
 
 Node * levelLinkTree(Node * t) {
-    auto lastSuccessors = std::vector<Node *>();
-    std::function<void(Node *, int)> linkLevels = [&lastSuccessors, &linkLevels]
+    auto lastSuccessors = vector<Node *>();
+    function<void(Node *, int)> linkLevels = [&lastSuccessors, &linkLevels]
             (Node * node, int level) -> void {
         if(lastSuccessors.size() > level) {
             lastSuccessors[level]->sameLevelSuccessor = node;
@@ -53,8 +55,8 @@ Node * createRandomTree(int maxDepth) {
 }
 
 void printTree(Node * t) {
-    std::function<void(Node *, int)> printTreeHelper = [&printTreeHelper] (Node * node, int indent) -> void {
-        std::cout << std::string(indent * 2, ' ') << node->value << std::endl;
+    function<void(Node *, int)> printTreeHelper = [&printTreeHelper] (Node * node, int indent) -> void {
+        cout << string(indent * 2, ' ') << node->value << endl;
         if(node->left != nullptr) {
             printTreeHelper(node->left, indent + 1);
         }
@@ -71,7 +73,7 @@ void printTreeByLevel(Node * t) {
     auto successor = t;
     Node * leftMostChild = nullptr;
     while(successor != nullptr) {
-        std::cout << successor->value << " ";
+        cout << successor->value << " ";
         if(leftMostChild == nullptr) {
             if(successor->left != nullptr) {
                 leftMostChild = successor->left;
@@ -81,7 +83,7 @@ void printTreeByLevel(Node * t) {
         }
         successor = successor->sameLevelSuccessor;
     }
-    std::cout << std::endl;
+    cout << endl;
     if(leftMostChild != nullptr) {
         printTreeByLevel(leftMostChild);
     }
@@ -90,7 +92,7 @@ void printTreeByLevel(Node * t) {
 int main(int argc, char* argv[]) {
     Node * root = createRandomTree(20);
     printTree(root);
-    std::cout << std::endl;
+    cout << endl;
     root = levelLinkTree(root);
     printTreeByLevel(root);
     return 0;
